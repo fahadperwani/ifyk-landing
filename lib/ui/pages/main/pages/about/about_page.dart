@@ -11,10 +11,11 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isCompact = SizeUtil.isCompact(context);
+    final tabsRouter = AutoTabsRouter.of(context);
     if(isCompact){
       return const AboutCompactContent();
     } else {
-      return const AboutWideContent();
+      return AboutWideContent(tabsRouter: tabsRouter);
     }
   }
 }

@@ -25,11 +25,12 @@ class _CityPageState extends State<CityPage> {
   }
   @override
   Widget build(BuildContext context) {
+    final tabsRouter = AutoTabsRouter.of(context);
     final isCompact = SizeUtil.isCompact(context);
     if(isCompact){
       return const CityCompactContent();
     } else {
-      return CityWideContent(city: city);
+      return CityWideContent(city: city, tabsRouter: tabsRouter);
     }
   }
 }

@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:ifyk_landing/constants/color_palette.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/compact/widgets/compact_cities_section.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/compact/widgets/compact_feedbacks_section.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/compact/widgets/compact_footer.dart';
@@ -55,9 +58,12 @@ class HomeCompactContent extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    const Flexible(
-                      child: PngAsset(
-                        'google_play',
+                    Flexible(
+                      child: GestureDetector(
+                        onTap: (){
+                          launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
+                        },
+                        child: const PngAsset('google_play'),
                       ),
                     ),
                   ],
@@ -79,12 +85,19 @@ class HomeCompactContent extends StatelessWidget {
               width: double.infinity,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 75, right: 75, top: 60),
-            child: PngAsset(
-              'never_miss_out',
-              fit: BoxFit.fitWidth,
-              width: double.infinity,
+          Text(
+            "NEVER MISS OUT",
+            style: GoogleFonts.unbounded(
+              fontWeight: FontWeight.w500,
+              fontSize: 27,
+              color: ColorPalette.primary ,
+            ),
+          ),
+          Text(
+            "ON LOCAL EVENTS",
+            style: GoogleFonts.unbounded(
+              fontWeight: FontWeight.w500,
+              fontSize: 27,
             ),
           ),
           const Padding(

@@ -11,7 +11,7 @@ class CityCompactContent extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(30),
         child: Text(
-          "City Phone View Under Maintenance",
+          "City Phone View Coming Soon",
           textAlign: TextAlign.center,
           style: GoogleFonts.unbounded(
             fontWeight: FontWeight.w500,

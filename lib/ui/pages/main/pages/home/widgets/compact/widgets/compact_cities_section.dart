@@ -1,7 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:ifyk_landing/router/router.gr.dart';
 import 'package:ifyk_landing/ui/widgets/jpg_asset.dart';
 import 'package:ifyk_landing/ui/widgets/png_asset.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+
+import '../../../../../../../../constants/color_palette.dart';
 
 class CompactCitiesSection extends StatefulWidget {
   const CompactCitiesSection({super.key});
@@ -24,12 +29,29 @@ class _CompactCitiesSectionState extends State<CompactCitiesSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 75, right: 75, top: 60, bottom: 20),
-          child: PngAsset(
-            'best_things_to_do_in_your_city_compact',
-            fit: BoxFit.fitWidth,
-            width: double.infinity,
+        Padding(
+          padding: const EdgeInsets.only(left: 75, right: 75, top: 60, bottom: 20),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "BEST THINGS TO DO",
+                  style: GoogleFonts.unbounded(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 27,
+                    color: ColorPalette.primary ,
+                  ),
+                ),
+                Text(
+                  "IN YOUR CITY",
+                  style: GoogleFonts.unbounded(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 27,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         ShaderMask(
@@ -47,35 +69,37 @@ class _CompactCitiesSectionState extends State<CompactCitiesSection> {
             options: CarouselOptions(
               height: 600,
               initialPage: 0,
-              enableInfiniteScroll: true,
-              autoPlay: true,
-
+              enableInfiniteScroll: false,
+              // autoPlay: true,
             ),
             items: _cities.map((city) {
               return Builder(
                 builder: (BuildContext context) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Stack(
-                      children: [
-                        Positioned.fill(
-                          child: JpgAsset(
-                            '${city}_compact',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 40),
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: PngAsset(
-                              '${city}_text',
-                              height: 70,
+                  return GestureDetector(
+                    onTap: ()=> context.pushRoute(CityRoute(cityId: city.replaceAll(RegExp('_'), '-'))),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Stack(
+                        children: [
+                          Positioned.fill(
+                            child: JpgAsset(
+                              city,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 40),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: PngAsset(
+                                '${city}_text',
+                                height: 70,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },

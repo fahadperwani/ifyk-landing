@@ -37,6 +37,7 @@ class _MainPageState extends State<MainPage> {
       builder: (context, child, tabController){
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: ColorPalette.backgroundColor,
           body: Column(
             children: [

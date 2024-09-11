@@ -13,6 +13,7 @@ class CompactFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tabsRouter = AutoTabsRouter.of(context);
     return Stack(
       children: [
         const Positioned.fill(
@@ -28,7 +29,7 @@ class CompactFooter extends StatelessWidget {
             children: <Widget>[
               Column(
                 children: [
-                  const SizedBox(height: 40 ),
+                  const SizedBox(height: 40),
                   Text(
                     "READY TO EXPLORE?",
                     textAlign: TextAlign.center,
@@ -51,31 +52,33 @@ class CompactFooter extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 100),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Flexible(
-                            child: GestureDetector(
-                              onTap: (){
-                                launchUrl(Uri.parse('https://apps.apple.com/us/app/ifyk/id6468367267'));
-                              },
-                              child: const PngAsset(
-                                'app_store',
-                              ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 100),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Flexible(
+                          child: GestureDetector(
+                            onTap: (){
+                              launchUrl(Uri.parse('https://apps.apple.com/us/app/ifyk/id6468367267'));
+                            },
+                            child: const PngAsset(
+                              'app_store',
                             ),
                           ),
-                          const SizedBox(width: 15),
-                          const Flexible(
-                            child: PngAsset(
+                        ),
+                        const SizedBox(width: 15),
+                        Flexible(
+                          child: GestureDetector(
+                            onTap: (){
+                              launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
+                            },
+                            child: const PngAsset(
                               'google_play',
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 100),
@@ -86,7 +89,7 @@ class CompactFooter extends StatelessWidget {
                         borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
                         color: ColorPalette.footerColor
                       ),
-                      padding: const EdgeInsets.only(left: 20, right: 20, top: 60),
+                      padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -94,7 +97,7 @@ class CompactFooter extends StatelessWidget {
                           const SizedBox(height: 40),
                           GestureDetector(
                             onTap: (){
-
+                              tabsRouter.setActiveIndex(1);
                             },
                             child: Text(
                               'ABOUT',
@@ -104,7 +107,7 @@ class CompactFooter extends StatelessWidget {
                           const SizedBox(height: 20),
                           GestureDetector(
                             onTap: (){
-
+                              tabsRouter.setActiveIndex(2);
                             },
                             child: Text(
                               'CONTACT',
@@ -137,7 +140,10 @@ class CompactFooter extends StatelessWidget {
                           // ),
                           const SizedBox(height: 30),
                           Center(
-                            child: Text('Copyright 2024, ifYK. All Rights Reserved', style: GoogleFonts.unbounded(fontSize: 12)),
+                            child: Text(
+                              'Copyright 2024, ifYK. All Rights Reserved',
+                              style: GoogleFonts.unbounded(fontSize: 12),
+                            ),
                           ),
                           const SizedBox(height: 10),
                         ],

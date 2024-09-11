@@ -1,5 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:ifyk_landing/constants/color_palette.dart';
 import 'package:ifyk_landing/router/router.gr.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_feedbacks_section.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_footer.dart';
@@ -10,7 +15,8 @@ import 'package:ifyk_landing/ui/widgets/png_asset.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeWideContent extends StatelessWidget {
-  const HomeWideContent({super.key});
+  final TabsRouter tabsRouter;
+  const HomeWideContent({super.key, required this.tabsRouter});
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +63,14 @@ class HomeWideContent extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(width: screenWidth/100),
-                                          const Flexible(
-                                            child: PngAsset(
-                                              'google_play',
+                                          Flexible(
+                                            child: GestureDetector(
+                                              onTap: (){
+                                                launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
+                                              },
+                                              child: const PngAsset(
+                                                'google_play',
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -105,8 +116,28 @@ class HomeWideContent extends StatelessWidget {
                   SizedBox(height: screenWidth/20),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: screenWidth/3),
-                    child: const PngAsset(
-                      'never_miss_out',
+                    child: Column(
+                      children: [
+                        AutoSizeText(
+                          "NEVER MISS OUT",
+                          minFontSize: 20,
+                          maxLines: 1,
+                          style: GoogleFonts.unbounded(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 40,
+                            color: ColorPalette.primary ,
+                          ),
+                        ),
+                        AutoSizeText(
+                          "ON LOCAL EVENTS",
+                          minFontSize: 20,
+                          maxLines: 1,
+                          style: GoogleFonts.unbounded(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 40,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(height: screenWidth/30),
@@ -150,8 +181,34 @@ class HomeWideContent extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: screenWidth/4, right: screenWidth/4, top: screenWidth/9, bottom: screenWidth/30),
-                    child: const PngAsset(
-                      'best_things_to_do_in_your_city',
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 12,
+                          child: AutoSizeText(
+                            "BEST THINGS TO DO ",
+                            minFontSize: 15,
+                            maxLines: 1,
+                            style: GoogleFonts.unbounded(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 40,
+                              color: ColorPalette.primary ,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 8,
+                          child: AutoSizeText(
+                            "IN YOUR CITY",
+                            minFontSize: 15,
+                            maxLines: 1,
+                            style: GoogleFonts.unbounded(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 40,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

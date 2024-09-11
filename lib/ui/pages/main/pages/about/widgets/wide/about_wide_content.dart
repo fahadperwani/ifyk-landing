@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
@@ -7,7 +8,8 @@ import 'package:ifyk_landing/ui/utils/size_util.dart';
 import 'package:ifyk_landing/ui/widgets/png_asset.dart';
 
 class AboutWideContent extends StatelessWidget {
-  const AboutWideContent({super.key});
+  final TabsRouter tabsRouter;
+  const AboutWideContent({super.key, required this.tabsRouter});
 
   Widget _buildFeature(String title, String subtitle){
     return Expanded(

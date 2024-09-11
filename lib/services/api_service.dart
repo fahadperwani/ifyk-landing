@@ -2,8 +2,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
-const bool production = true;
+const bool production = false;
 class ApiService{
   final Dio _dio = Dio(
     BaseOptions(

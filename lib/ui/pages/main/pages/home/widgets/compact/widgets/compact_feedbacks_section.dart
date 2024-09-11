@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/providers/reviews_future_provider.dart';
 import 'package:ifyk_landing/ui/widgets/custom_text.dart';
@@ -19,16 +20,36 @@ class _CompactFeedbacksSectionState extends ConsumerState<CompactFeedbacksSectio
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 75, right: 75, top: 60, bottom: 20),
-          child: PngAsset(
-            'real_stories_real_experiences_compact',
-            fit: BoxFit.fitWidth,
-            width: double.infinity,
+        const SizedBox(height: 60),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              "REAL STORIES",
+              style: GoogleFonts.unbounded(
+                fontWeight: FontWeight.w500,
+                fontSize: 27,
+                color: ColorPalette.primary ,
+              ),
+            ),
+            Text(
+              " AND",
+              style: GoogleFonts.unbounded(
+                fontWeight: FontWeight.w500,
+                fontSize: 27,
+              ),
+            ),
+          ],
+        ),
+        Text(
+          "REAL EXPERIENCES",
+          style: GoogleFonts.unbounded(
+            fontWeight: FontWeight.w500,
+            fontSize: 27,
           ),
         ),
+        const SizedBox(height: 20),
         ref.watch(reviewsFutureProvider).when(
           data: (reviews) {
             return ShaderMask(
@@ -46,8 +67,8 @@ class _CompactFeedbacksSectionState extends ConsumerState<CompactFeedbacksSectio
                 options: CarouselOptions(
                   height: 170,
                   initialPage: 0,
-                  enableInfiniteScroll: true,
-                  autoPlay: true,
+                  enableInfiniteScroll: false,
+                  // autoPlay: true,
                 ),
                 items: reviews.map((review) {
                   return Builder(

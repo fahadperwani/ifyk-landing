@@ -119,9 +119,14 @@ class CompactAppBar extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(width: 15),
-                                  const Flexible(
-                                    child: PngAsset(
-                                      'google_play',
+                                  Flexible(
+                                    child: GestureDetector(
+                                      onTap: (){
+                                        launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
+                                      },
+                                      child: const PngAsset(
+                                        'google_play',
+                                      ),
                                     ),
                                   ),
                                 ],

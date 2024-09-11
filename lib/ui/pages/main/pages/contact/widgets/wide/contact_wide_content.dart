@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
@@ -8,7 +9,8 @@ import 'package:ifyk_landing/ui/utils/size_util.dart';
 import 'package:ifyk_landing/ui/widgets/png_asset.dart';
 
 class ContactWideContent extends StatefulWidget {
-  const ContactWideContent({super.key});
+  final TabsRouter tabsRouter;
+  const ContactWideContent({super.key, required this.tabsRouter});
 
   @override
   State<ContactWideContent> createState() => _ContactWideContentState();

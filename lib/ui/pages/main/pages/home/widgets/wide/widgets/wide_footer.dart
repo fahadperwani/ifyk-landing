@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
@@ -13,6 +14,7 @@ class WideFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tabsRouter = AutoTabsRouter.of(context);
     const double maxWidth = 1000;
     final screenWidth = SizeUtil.screenWidth(context) < maxWidth ? SizeUtil.screenWidth(context) : maxWidth;
     return SizedBox(
@@ -24,8 +26,33 @@ class WideFooter extends StatelessWidget {
             children: [
               SizedBox(height: topPadding),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth/20),
-                child: const PngAsset('ready_to_explore'),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth/3.8),
+                child: AutoSizeText(
+                  "READY TO EXPLORE?",
+                  maxLines: 1,
+                  minFontSize: 15,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.unbounded(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 45,
+                    color: ColorPalette.primary,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 4),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenWidth/3.6),
+                child: AutoSizeText(
+                  "See what’s happening near you. Download the app and start your adventure!",
+                  maxLines: 2,
+                  minFontSize: 10,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.almarai(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 23,
+                    color: ColorPalette.white,
+                  ),
+                ),
               ),
               SizedBox(height: screenWidth/30),
               Align(
@@ -44,8 +71,13 @@ class WideFooter extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 15),
-                      const Flexible(
-                        child: PngAsset('google_play'),
+                      Flexible(
+                        child: GestureDetector(
+                          onTap: (){
+                            launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
+                          },
+                          child: const PngAsset('google_play'),
+                        ),
                       ),
                     ],
                   ),
@@ -102,16 +134,26 @@ class WideFooter extends StatelessWidget {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        'ABOUT',
-                                        style: GoogleFonts.unbounded(
-                                            fontSize: 9
+                                      GestureDetector(
+                                        onTap: (){
+                                          tabsRouter.setActiveIndex(1);
+                                        },
+                                        child: Text(
+                                          'ABOUT',
+                                          style: GoogleFonts.unbounded(
+                                              fontSize: 9
+                                          ),
                                         ),
                                       ),
-                                      Text(
-                                        'CONTACT',
-                                        style: GoogleFonts.unbounded(
-                                            fontSize: 9
+                                      GestureDetector(
+                                        onTap: (){
+                                          tabsRouter.setActiveIndex(2);
+                                        },
+                                        child: Text(
+                                          'CONTACT',
+                                          style: GoogleFonts.unbounded(
+                                              fontSize: 9
+                                          ),
                                         ),
                                       ),
                                       GestureDetector(
@@ -167,11 +209,6 @@ class WideFooter extends StatelessWidget {
                     ],
                   ),
                 ),
-                // child: const PngAsset(
-                //   width: double.infinity,
-                //   fit: BoxFit.fitWidth,
-                //   'footer',
-                // ),
               ),
             ],
           ),

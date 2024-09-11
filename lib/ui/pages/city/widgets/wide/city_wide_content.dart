@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
@@ -5,6 +6,7 @@ import 'package:ifyk_landing/models/city/city.dart';
 import 'package:ifyk_landing/models/explore_item/explore_item.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_feedbacks_section.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_footer.dart';
+import 'package:ifyk_landing/ui/pages/main/widgets/wide_wrapper.dart';
 import 'package:ifyk_landing/ui/widgets/city_asset.dart';
 import 'package:ifyk_landing/ui/widgets/png_asset.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,7 +14,8 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class CityWideContent extends StatefulWidget {
   final City city;
-  const CityWideContent({super.key, required this.city});
+  final TabsRouter tabsRouter;
+  const CityWideContent({super.key, required this.city, required this.tabsRouter});
 
   @override
   State<CityWideContent> createState() => _CityWideContentState();
@@ -28,6 +31,7 @@ class _CityWideContentState extends State<CityWideContent> {
 
   Widget _buildHeader(){
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "BEST THINGS TO DO IN ${city.name}",
@@ -100,10 +104,15 @@ class _CityWideContentState extends State<CityWideContent> {
                       ),
                     ),
                     const SizedBox(width: 15),
-                    const Flexible(
-                      child: PngAsset(
-                        'google_play',
-                        width: 115,
+                    Flexible(
+                      child: GestureDetector(
+                        onTap: (){
+                          launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
+                        },
+                        child: const PngAsset(
+                          'google_play',
+                          width: 115,
+                        ),
                       ),
                     ),
                   ],
@@ -130,7 +139,10 @@ class _CityWideContentState extends State<CityWideContent> {
             ),
           ),
           const SizedBox(height: 10),
-          CityAsset(item.image, width: double.infinity,),
+          CityAsset(item.image,
+            fit: BoxFit.fitWidth,
+            width: double.infinity,
+          ),
 
         ],
       );
@@ -166,20 +178,27 @@ class _CityWideContentState extends State<CityWideContent> {
     return Column(
       children: [
         const WideFeedbacksSection(),
-        Padding(
-          padding: const EdgeInsets.only(top: 50),
-          child: Text(
-            city.footerDetails,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              fontWeight: FontWeight.normal,
-              fontSize: 17,
-              color: ColorPalette.subTextColor,
-              fontStyle: FontStyle.italic,
-            ),
+        WideWrapper(
+          maxWidth: 1200,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+                child: Text(
+                  city.footerDetails,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 17,
+                    color: ColorPalette.subTextColor,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+              const WideFooter(),
+            ],
           ),
         ),
-        const WideFooter(),
       ],
     );
   }
@@ -196,7 +215,7 @@ class _CityWideContentState extends State<CityWideContent> {
       _buildSection("OUTDOOR ADVENTURES", city.outdoorAdventuresDetails, city.outdoorAdventures),
       _buildSection("SPORTS", city.sportsDetails, city.sports),
       _buildSection("FESTIVALS", city.festivalsDetails, city.festivals),
-      _buildFooter()
+      // _buildFooter()
     ];
     super.initState();
   }
@@ -204,185 +223,193 @@ class _CityWideContentState extends State<CityWideContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(left: 40, right: 400),
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 30),
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: ColorPalette.jumpToBgColor,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "Home  /  Cities  /  ",
-                    style: GoogleFonts.almarai(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 11,
-                      color: ColorPalette.subTextColor
-                    ),
-                  ),
-                  Text(
-                    city.name.toTitleCase(),
-                    style: GoogleFonts.almarai(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 11,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: Row(
+            Padding(
+              padding: const EdgeInsets.only(left: 40, right: 40),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 10),
                   Container(
-                    width: 330,
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: ColorPalette.jumpToBgColor,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          "JUMP TO",
-                          style: GoogleFonts.unbounded(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20,
+                          "Home  /  Cities  /  ",
+                          style: GoogleFonts.almarai(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 11,
+                            color: ColorPalette.subTextColor
                           ),
                         ),
-                        const SizedBox(height: 30),
-                        GestureDetector(
-                          onTap: () => itemScrollController.scrollTo(
-                            index: 1,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
-                          ),
-                          child: Text(
-                            "Top Attractions",
-                            style: GoogleFonts.almarai(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        GestureDetector(
-                          onTap: () => itemScrollController.scrollTo(
-                            index: 2,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
-                          ),
-                          child: Text(
-                            "Concerts",
-                            style: GoogleFonts.almarai(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        GestureDetector(
-                          onTap: () => itemScrollController.scrollTo(
-                            index: 3,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
-                          ),
-                          child: Text(
-                            "Food and Dining",
-                            style: GoogleFonts.almarai(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        GestureDetector(
-                          onTap: () => itemScrollController.scrollTo(
-                            index: 4,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
-                          ),
-                          child: Text(
-                            "Nightlife",
-                            style: GoogleFonts.almarai(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        GestureDetector(
-                          onTap: () => itemScrollController.scrollTo(
-                            index: 5,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
-                          ),
-                          child: Text(
-                            "Outdoor Adventures",
-                            style: GoogleFonts.almarai(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        GestureDetector(
-                          onTap: () => itemScrollController.scrollTo(
-                            index: 6,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
-                          ),
-                          child: Text(
-                            "Sports",
-                            style: GoogleFonts.almarai(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        GestureDetector(
-                          onTap: () => itemScrollController.scrollTo(
-                            index: 7,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
-                          ),
-                          child: Text(
-                            "Festivals",
-                            style: GoogleFonts.almarai(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
+                        Text(
+                          city.name.toTitleCase(),
+                          style: GoogleFonts.almarai(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 11,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(width: 30),
-                  Expanded(
-                    flex: 2,
-                    child: ScrollablePositionedList.builder(
-                      itemCount: 9,
-                      itemBuilder: (context, index) => _scrollWidgets[index],
-                      itemScrollController: itemScrollController,
-                      scrollOffsetController: scrollOffsetController,
-                      itemPositionsListener: itemPositionsListener,
-                      scrollOffsetListener: scrollOffsetListener,
+                  const SizedBox(height: 15),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height -156,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 330,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: ColorPalette.jumpToBgColor,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "JUMP TO",
+                                style: GoogleFonts.unbounded(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              const SizedBox(height: 30),
+                              GestureDetector(
+                                onTap: () => itemScrollController.scrollTo(
+                                  index: 1,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                ),
+                                child: Text(
+                                  "Top Attractions",
+                                  style: GoogleFonts.almarai(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 15),
+                              GestureDetector(
+                                onTap: () => itemScrollController.scrollTo(
+                                  index: 2,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                ),
+                                child: Text(
+                                  "Concerts",
+                                  style: GoogleFonts.almarai(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 15),
+                              GestureDetector(
+                                onTap: () => itemScrollController.scrollTo(
+                                  index: 3,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                ),
+                                child: Text(
+                                  "Food and Dining",
+                                  style: GoogleFonts.almarai(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 15),
+                              GestureDetector(
+                                onTap: () => itemScrollController.scrollTo(
+                                  index: 4,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                ),
+                                child: Text(
+                                  "Nightlife",
+                                  style: GoogleFonts.almarai(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 15),
+                              GestureDetector(
+                                onTap: () => itemScrollController.scrollTo(
+                                  index: 5,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                ),
+                                child: Text(
+                                  "Outdoor Adventures",
+                                  style: GoogleFonts.almarai(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 15),
+                              GestureDetector(
+                                onTap: () => itemScrollController.scrollTo(
+                                  index: 6,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                ),
+                                child: Text(
+                                  "Sports",
+                                  style: GoogleFonts.almarai(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 15),
+                              GestureDetector(
+                                onTap: () => itemScrollController.scrollTo(
+                                  index: 7,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeInOut,
+                                ),
+                                child: Text(
+                                  "Festivals",
+                                  style: GoogleFonts.almarai(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 30),
+                        Expanded(
+                          flex: 2,
+                          child: ScrollablePositionedList.builder(
+                            itemCount: 8,
+                            itemBuilder: (context, index) => _scrollWidgets[index],
+                            itemScrollController: itemScrollController,
+                            scrollOffsetController: scrollOffsetController,
+                            itemPositionsListener: itemPositionsListener,
+                            scrollOffsetListener: scrollOffsetListener,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
+            _buildFooter(),
           ],
         ),
       ),

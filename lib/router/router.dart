@@ -11,6 +11,7 @@ class AppRouter extends $AppRouter{
       path: '/',
       children: [
         AutoRoute(
+          maintainState: false,
           path: 'home',
           page: HomeRouterRoute.page,
           children: [
@@ -25,10 +26,12 @@ class AppRouter extends $AppRouter{
           ]
         ),
         AutoRoute(
+          maintainState: false,
           path: 'about',
           page: AboutRoute.page,
         ),
         AutoRoute(
+          maintainState: false,
           path: 'contact',
           page: ContactRoute.page,
         ),
