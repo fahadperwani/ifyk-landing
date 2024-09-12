@@ -30,11 +30,11 @@ class WideFooter extends StatelessWidget {
                 child: AutoSizeText(
                   "READY TO EXPLORE?",
                   maxLines: 1,
-                  minFontSize: 15,
+                  minFontSize: 12,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.unbounded(
                     fontWeight: FontWeight.bold,
-                    fontSize: 45,
+                    fontSize: 40,
                     color: ColorPalette.primary,
                   ),
                 ),

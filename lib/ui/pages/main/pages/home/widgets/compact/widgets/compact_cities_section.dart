@@ -39,7 +39,7 @@ class _CompactCitiesSectionState extends State<CompactCitiesSection> {
                   "BEST THINGS TO DO",
                   style: GoogleFonts.unbounded(
                     fontWeight: FontWeight.w500,
-                    fontSize: 27,
+                    fontSize: 24,
                     color: ColorPalette.primary ,
                   ),
                 ),
@@ -47,65 +47,63 @@ class _CompactCitiesSectionState extends State<CompactCitiesSection> {
                   "IN YOUR CITY",
                   style: GoogleFonts.unbounded(
                     fontWeight: FontWeight.w500,
-                    fontSize: 27,
+                    fontSize: 24,
                   ),
                 ),
               ],
             ),
           ),
         ),
-        ShaderMask(
-          shaderCallback: (Rect bounds) {
-            return LinearGradient(
-                colors: [Colors.transparent.withOpacity(0.05), Colors.white, Colors.white, Colors.transparent.withOpacity(0.05)],
-                stops: const [0,.1,.9,1],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight
-              // tileMode: TileMode.mirror,
-            ).createShader(bounds);
-          },
-          child: CarouselSlider(
-            carouselController: _controller,
-            options: CarouselOptions(
-              height: 600,
-              initialPage: 0,
-              enableInfiniteScroll: false,
-              // autoPlay: true,
-            ),
-            items: _cities.map((city) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return GestureDetector(
-                    onTap: ()=> context.pushRoute(CityRoute(cityId: city.replaceAll(RegExp('_'), '-'))),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Stack(
-                        children: [
-                          Positioned.fill(
-                            child: JpgAsset(
-                              city,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 40),
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: PngAsset(
-                                '${city}_text',
-                                height: 70,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              );
-            }).toList(),
+        // shaderCallback: (Rect bounds) {
+        //   return LinearGradient(
+        //       colors: [Colors.transparent.withOpacity(0.05), Colors.white, Colors.white, Colors.transparent.withOpacity(0.05)],
+        //       stops: const [0,.1,.9,1],
+        //       begin: Alignment.centerLeft,
+        //       end: Alignment.centerRight
+        //     // tileMode: TileMode.mirror,
+        //   ).createShader(bounds);
+        // },
+        CarouselSlider(
+          carouselController: _controller,
+          options: CarouselOptions(
+            height: 600,
+            initialPage: 0,
+            enableInfiniteScroll: false,
+            // autoPlay: true,
           ),
+          items: _cities.map((city) {
+            return Builder(
+              builder: (BuildContext context) {
+                return GestureDetector(
+                  onTap: ()=> context.pushRoute(CityRoute(cityId: city.replaceAll(RegExp('_'), '-'))),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Stack(
+                      children: [
+                        Positioned.fill(
+                          child: JpgAsset(
+                            city,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 40),
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: PngAsset(
+                              '${city}_text',
+                              height: 70,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          }).toList(),
         )
       ],
     );

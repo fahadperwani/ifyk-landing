@@ -95,14 +95,14 @@ class AboutCompactContent extends StatelessWidget {
                       "WHAT WE'VE",
                       style: GoogleFonts.unbounded(
                         fontWeight: FontWeight.w500,
-                        fontSize: 30,
+                        fontSize: 26,
                       ),
                     ),
                     Text(
                       " CREATED",
                       style: GoogleFonts.unbounded(
                         fontWeight: FontWeight.w500,
-                        fontSize: 30,
+                        fontSize: 26,
                         color: ColorPalette.primary ,
                       ),
                     ),

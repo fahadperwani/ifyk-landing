@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
@@ -114,31 +115,34 @@ class HomeWideContent extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: screenWidth/20),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: screenWidth/3),
-                    child: Column(
-                      children: [
-                        AutoSizeText(
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 60),
+                        child: AutoSizeText(
                           "NEVER MISS OUT",
-                          minFontSize: 20,
                           maxLines: 1,
+                          minFontSize: 15,
                           style: GoogleFonts.unbounded(
                             fontWeight: FontWeight.w500,
                             fontSize: 40,
                             color: ColorPalette.primary ,
                           ),
                         ),
-                        AutoSizeText(
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
+                        child: AutoSizeText(
                           "ON LOCAL EVENTS",
-                          minFontSize: 20,
                           maxLines: 1,
+                          minFontSize: 15,
                           style: GoogleFonts.unbounded(
                             fontWeight: FontWeight.w500,
                             fontSize: 40,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: screenWidth/30),
                   Padding(
@@ -171,23 +175,28 @@ class HomeWideContent extends StatelessWidget {
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: screenWidth/8),
-                          child: const PngAsset(
-                            'swipe_scroll_discover',
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
+                          child: Container(
+                            constraints: const BoxConstraints(maxWidth: 1200),
+                            child: const PngAsset(
+                              'swipe_scroll_discover',
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: screenWidth/4, right: screenWidth/4, top: screenWidth/9, bottom: screenWidth/30),
-                    child: Row(
+                    padding: EdgeInsets.only(
+                      top: screenWidth/9, 
+                      bottom: screenWidth/30,
+                    ),
+                    child: Column(
                       children: [
-                        Expanded(
-                          flex: 12,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
                           child: AutoSizeText(
                             "BEST THINGS TO DO ",
-                            minFontSize: 15,
                             maxLines: 1,
                             style: GoogleFonts.unbounded(
                               fontWeight: FontWeight.w500,
@@ -196,11 +205,10 @@ class HomeWideContent extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Expanded(
-                          flex: 8,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 120),
                           child: AutoSizeText(
                             "IN YOUR CITY",
-                            minFontSize: 15,
                             maxLines: 1,
                             style: GoogleFonts.unbounded(
                               fontWeight: FontWeight.w500,
