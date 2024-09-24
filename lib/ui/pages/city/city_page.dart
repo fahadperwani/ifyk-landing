@@ -28,7 +28,7 @@ class _CityPageState extends State<CityPage> {
     final tabsRouter = AutoTabsRouter.of(context);
     final isCompact = SizeUtil.isCompact(context);
     if(isCompact){
-      return const CityCompactContent();
+      return  CityCompactContent(city: city, tabsRouter: tabsRouter);
     } else {
       return CityWideContent(city: city, tabsRouter: tabsRouter);
     }

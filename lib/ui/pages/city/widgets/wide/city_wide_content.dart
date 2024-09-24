@@ -22,11 +22,11 @@ class CityWideContent extends StatefulWidget {
 }
 
 class _CityWideContentState extends State<CityWideContent> {
-  final ItemScrollController itemScrollController = ItemScrollController();
-  final ScrollOffsetController scrollOffsetController = ScrollOffsetController();
-  final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();
-  final ScrollOffsetListener scrollOffsetListener = ScrollOffsetListener.create();
-  late City city;
+  final ItemScrollController _itemScrollController = ItemScrollController();
+  final ScrollOffsetController _scrollOffsetController = ScrollOffsetController();
+  final ItemPositionsListener _itemPositionsListener = ItemPositionsListener.create();
+  final ScrollOffsetListener _scrollOffsetListener = ScrollOffsetListener.create();
+  late City _city;
   late List<Widget> _scrollWidgets;
 
   Widget _buildHeader(){
@@ -34,7 +34,7 @@ class _CityWideContentState extends State<CityWideContent> {
       crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "BEST THINGS TO DO IN ${city.name}",
+            "BEST THINGS TO DO IN ${_city.name}",
             style: GoogleFonts.unbounded(
               fontWeight: FontWeight.w500,
               fontSize: 22,
@@ -42,7 +42,7 @@ class _CityWideContentState extends State<CityWideContent> {
           ),
           const SizedBox(height: 10),
           Text(
-            city.details,
+            _city.details,
             style: GoogleFonts.inter(
               fontWeight: FontWeight.normal,
               fontSize: 17,
@@ -62,7 +62,7 @@ class _CityWideContentState extends State<CityWideContent> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "EXPLORE ${city.name} WITH",
+                        "EXPLORE ${_city.name} WITH",
                         style: GoogleFonts.unbounded(
                           fontWeight: FontWeight.w500,
                           fontSize: 14,
@@ -77,7 +77,7 @@ class _CityWideContentState extends State<CityWideContent> {
                         ),
                       ),
                       Text(
-                        "Download ifYK now to unlock amazing deals and find the hottest events in ${city.name.toTitleCase()}!",
+                        "Download ifYK now to unlock amazing deals and find the hottest events in ${_city.name.toTitleCase()}!",
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.normal,
                           fontSize: 12,
@@ -185,7 +185,7 @@ class _CityWideContentState extends State<CityWideContent> {
               Padding(
                 padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
                 child: Text(
-                  city.footerDetails,
+                  _city.footerDetails,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.normal,
@@ -205,16 +205,16 @@ class _CityWideContentState extends State<CityWideContent> {
 
   @override
   void initState() {
-    city = widget.city;
+    _city = widget.city;
     _scrollWidgets = [
       _buildHeader(),
-      _buildSection("TOP ATTRACTIONS IN ${city.name}", city.topAttractionsDetails, city.topAttractions),
-      _buildSection("CONCERTS", city.concertsDetails, city.concerts),
-      _buildSection("FOOD AND DINING", city.foodAndDiningDetails, city.foodAndDining),
-      _buildSection("NIGHTLIFE", city.nightLifeDetails, city.nightLife),
-      _buildSection("OUTDOOR ADVENTURES", city.outdoorAdventuresDetails, city.outdoorAdventures),
-      _buildSection("SPORTS", city.sportsDetails, city.sports),
-      _buildSection("FESTIVALS", city.festivalsDetails, city.festivals),
+      _buildSection("TOP ATTRACTIONS IN ${_city.name}", _city.topAttractionsDetails, _city.topAttractions),
+      _buildSection("CONCERTS", _city.concertsDetails, _city.concerts),
+      _buildSection("FOOD AND DINING", _city.foodAndDiningDetails, _city.foodAndDining),
+      _buildSection("NIGHTLIFE", _city.nightLifeDetails, _city.nightLife),
+      _buildSection("OUTDOOR ADVENTURES", _city.outdoorAdventuresDetails, _city.outdoorAdventures),
+      _buildSection("SPORTS", _city.sportsDetails, _city.sports),
+      _buildSection("FESTIVALS", _city.festivalsDetails, _city.festivals),
       // _buildFooter()
     ];
     super.initState();
@@ -250,7 +250,7 @@ class _CityWideContentState extends State<CityWideContent> {
                           ),
                         ),
                         Text(
-                          city.name.toTitleCase(),
+                          _city.name.toTitleCase(),
                           style: GoogleFonts.almarai(
                             fontWeight: FontWeight.normal,
                             fontSize: 11,
@@ -285,7 +285,7 @@ class _CityWideContentState extends State<CityWideContent> {
                               ),
                               const SizedBox(height: 30),
                               GestureDetector(
-                                onTap: () => itemScrollController.scrollTo(
+                                onTap: () => _itemScrollController.scrollTo(
                                   index: 1,
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.easeInOut,
@@ -300,7 +300,7 @@ class _CityWideContentState extends State<CityWideContent> {
                               ),
                               const SizedBox(height: 15),
                               GestureDetector(
-                                onTap: () => itemScrollController.scrollTo(
+                                onTap: () => _itemScrollController.scrollTo(
                                   index: 2,
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.easeInOut,
@@ -315,7 +315,7 @@ class _CityWideContentState extends State<CityWideContent> {
                               ),
                               const SizedBox(height: 15),
                               GestureDetector(
-                                onTap: () => itemScrollController.scrollTo(
+                                onTap: () => _itemScrollController.scrollTo(
                                   index: 3,
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.easeInOut,
@@ -330,7 +330,7 @@ class _CityWideContentState extends State<CityWideContent> {
                               ),
                               const SizedBox(height: 15),
                               GestureDetector(
-                                onTap: () => itemScrollController.scrollTo(
+                                onTap: () => _itemScrollController.scrollTo(
                                   index: 4,
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.easeInOut,
@@ -345,7 +345,7 @@ class _CityWideContentState extends State<CityWideContent> {
                               ),
                               const SizedBox(height: 15),
                               GestureDetector(
-                                onTap: () => itemScrollController.scrollTo(
+                                onTap: () => _itemScrollController.scrollTo(
                                   index: 5,
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.easeInOut,
@@ -360,7 +360,7 @@ class _CityWideContentState extends State<CityWideContent> {
                               ),
                               const SizedBox(height: 15),
                               GestureDetector(
-                                onTap: () => itemScrollController.scrollTo(
+                                onTap: () => _itemScrollController.scrollTo(
                                   index: 6,
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.easeInOut,
@@ -375,7 +375,7 @@ class _CityWideContentState extends State<CityWideContent> {
                               ),
                               const SizedBox(height: 15),
                               GestureDetector(
-                                onTap: () => itemScrollController.scrollTo(
+                                onTap: () => _itemScrollController.scrollTo(
                                   index: 7,
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.easeInOut,
@@ -397,10 +397,10 @@ class _CityWideContentState extends State<CityWideContent> {
                           child: ScrollablePositionedList.builder(
                             itemCount: 8,
                             itemBuilder: (context, index) => _scrollWidgets[index],
-                            itemScrollController: itemScrollController,
-                            scrollOffsetController: scrollOffsetController,
-                            itemPositionsListener: itemPositionsListener,
-                            scrollOffsetListener: scrollOffsetListener,
+                            itemScrollController: _itemScrollController,
+                            scrollOffsetController: _scrollOffsetController,
+                            itemPositionsListener: _itemPositionsListener,
+                            scrollOffsetListener: _scrollOffsetListener,
                           ),
                         ),
                       ],

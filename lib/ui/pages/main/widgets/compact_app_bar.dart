@@ -99,12 +99,12 @@ class CompactAppBar extends StatelessWidget {
                             ),
                             const Spacer(),
                             const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                               child: PngAsset('download_the_app'),
                             ),
                             const SizedBox(height: 20),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 40),
+                              padding: const EdgeInsets.symmetric(horizontal: 25),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [

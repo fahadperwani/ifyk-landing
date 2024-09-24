@@ -39,7 +39,7 @@ class _CompactCitiesSectionState extends State<CompactCitiesSection> {
                   "BEST THINGS TO DO",
                   style: GoogleFonts.unbounded(
                     fontWeight: FontWeight.w500,
-                    fontSize: 24,
+                    fontSize: 20,
                     color: ColorPalette.primary ,
                   ),
                 ),
@@ -47,7 +47,7 @@ class _CompactCitiesSectionState extends State<CompactCitiesSection> {
                   "IN YOUR CITY",
                   style: GoogleFonts.unbounded(
                     fontWeight: FontWeight.w500,
-                    fontSize: 24,
+                    fontSize: 20,
                   ),
                 ),
               ],

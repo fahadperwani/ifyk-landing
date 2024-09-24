@@ -172,14 +172,14 @@ class AboutCompactContent extends StatelessWidget {
                       "STORY BEHIND",
                       style: GoogleFonts.unbounded(
                         fontWeight: FontWeight.w500,
-                        fontSize: 35,
+                        fontSize: 30,
                       ),
                     ),
                     Text(
                       " ifYK",
                       style: GoogleFonts.unbounded(
                         fontWeight: FontWeight.w500,
-                        fontSize: 35,
+                        fontSize: 30,
                         color: ColorPalette.primary ,
                       ),
                     ),

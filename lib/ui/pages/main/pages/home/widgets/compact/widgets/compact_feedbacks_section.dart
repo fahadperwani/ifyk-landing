@@ -29,7 +29,7 @@ class _CompactFeedbacksSectionState extends ConsumerState<CompactFeedbacksSectio
               "REAL STORIES",
               style: GoogleFonts.unbounded(
                 fontWeight: FontWeight.w500,
-                fontSize: 27,
+                fontSize: 25,
                 color: ColorPalette.primary ,
               ),
             ),
@@ -37,7 +37,7 @@ class _CompactFeedbacksSectionState extends ConsumerState<CompactFeedbacksSectio
               " AND",
               style: GoogleFonts.unbounded(
                 fontWeight: FontWeight.w500,
-                fontSize: 27,
+                fontSize: 25,
               ),
             ),
           ],
@@ -46,7 +46,7 @@ class _CompactFeedbacksSectionState extends ConsumerState<CompactFeedbacksSectio
           "REAL EXPERIENCES",
           style: GoogleFonts.unbounded(
             fontWeight: FontWeight.w500,
-            fontSize: 27,
+            fontSize: 25,
           ),
         ),
         const SizedBox(height: 20),
@@ -67,7 +67,7 @@ class _CompactFeedbacksSectionState extends ConsumerState<CompactFeedbacksSectio
               options: CarouselOptions(
                 height: 170,
                 initialPage: 0,
-                enableInfiniteScroll: false,
+                enableInfiniteScroll: true,
                 // autoPlay: true,
               ),
               items: reviews.map((review) {

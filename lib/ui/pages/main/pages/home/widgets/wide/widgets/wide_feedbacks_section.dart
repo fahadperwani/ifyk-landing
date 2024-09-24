@@ -1,5 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
@@ -81,7 +80,7 @@ class _WideFeedbacksSectionState extends ConsumerState<WideFeedbacksSection> {
                   viewportFraction: 0.5,
                   height: 165,
                   initialPage: 0,
-                  enableInfiniteScroll: false,
+                  enableInfiniteScroll: true,
                   // autoPlay: true,
                 ),
                 items: reviews.map((review) {

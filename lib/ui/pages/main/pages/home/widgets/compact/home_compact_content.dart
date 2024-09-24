@@ -124,7 +124,7 @@ class HomeCompactContent extends StatelessWidget {
               width: double.infinity,
             ),
           ),
-          const CompactCitiesSection(),
+          // const CompactCitiesSection(),
           const CompactFeedbacksSection(),
           const CompactFooter(),
         ],

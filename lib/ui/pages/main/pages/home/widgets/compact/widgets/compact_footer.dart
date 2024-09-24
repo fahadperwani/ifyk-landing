@@ -53,7 +53,7 @@ class CompactFooter extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100),
+                    padding: const EdgeInsets.symmetric(horizontal: 60),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
