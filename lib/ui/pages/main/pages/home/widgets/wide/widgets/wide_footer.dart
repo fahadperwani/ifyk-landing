@@ -84,130 +84,128 @@ class WideFooter extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 100),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth/20),
-                child: Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.only(left: screenWidth/15, right: screenWidth/15, top: 40),
-                  decoration: const BoxDecoration(
-                      color: ColorPalette.footerColor,
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(30))
-                  ),
-                  child: Column(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                flex: 3,
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: PngAsset(
-                                    'logo',
-                                    width: screenWidth/12,
-                                  ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: screenWidth/20),
+                width: double.infinity,
+                padding: EdgeInsets.only(left: screenWidth/15, right: screenWidth/15, top: 40),
+                decoration: const BoxDecoration(
+                    color: ColorPalette.black,
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(30))
+                ),
+                child: Column(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 3,
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: PngAsset(
+                                  'logo',
+                                  width: screenWidth/12,
                                 ),
                               ),
-                              // Expanded(
-                              //   flex: 2,
-                              //   child: Align(
-                              //     alignment: Alignment.centerLeft,
-                              //     child: PngAsset(
-                              //       'subscribe_to_our_newsletter',
-                              //       width: screenWidth/4 ,
-                              //     ),
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                flex: 3,
-                                child: Padding(
-                                  padding: EdgeInsets.only(right: screenWidth/20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      GestureDetector(
-                                        onTap: (){
-                                          tabsRouter.setActiveIndex(1);
-                                        },
-                                        child: Text(
-                                          'ABOUT',
-                                          style: GoogleFonts.unbounded(
-                                              fontSize: 9
-                                          ),
+                            ),
+                            // Expanded(
+                            //   flex: 2,
+                            //   child: Align(
+                            //     alignment: Alignment.centerLeft,
+                            //     child: PngAsset(
+                            //       'subscribe_to_our_newsletter',
+                            //       width: screenWidth/4 ,
+                            //     ),
+                            //   ),
+                            // ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              flex: 3,
+                              child: Padding(
+                                padding: EdgeInsets.only(right: screenWidth/20),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: (){
+                                        tabsRouter.setActiveIndex(1);
+                                      },
+                                      child: Text(
+                                        'ABOUT',
+                                        style: GoogleFonts.unbounded(
+                                            fontSize: 9
                                         ),
                                       ),
-                                      GestureDetector(
-                                        onTap: (){
-                                          tabsRouter.setActiveIndex(2);
-                                        },
-                                        child: Text(
-                                          'CONTACT',
-                                          style: GoogleFonts.unbounded(
-                                              fontSize: 9
-                                          ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: (){
+                                        tabsRouter.setActiveIndex(2);
+                                      },
+                                      child: Text(
+                                        'CONTACT',
+                                        style: GoogleFonts.unbounded(
+                                            fontSize: 9
                                         ),
                                       ),
-                                      GestureDetector(
-                                        onTap: (){
-                                          context.pushRoute(const PrivacyPolicyRoute());
-                                        },
-                                        child: Text(
-                                          'PRIVACY POLICY',
-                                          style: GoogleFonts.unbounded(
-                                              fontSize: 9
-                                          ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: (){
+                                        context.pushRoute(const PrivacyPolicyRoute());
+                                      },
+                                      child: Text(
+                                        'PRIVACY POLICY',
+                                        style: GoogleFonts.unbounded(
+                                            fontSize: 9
                                         ),
                                       ),
-                                      const SizedBox(width: 50),
-                                      // GestureDetector(
-                                      //   onTap: () {
-                                      //     launchUrl(Uri.parse('https://ifykevents.com/terms_condition'));
-                                      //   },
-                                      //   child: Text(
-                                      //     'TERMS & CONDITIONS',
-                                      //     style: GoogleFonts.unbounded(
-                                      //         fontSize: 9
-                                      //     ),
-                                      //   ),
-                                      // ),
-                                    ],
-                                  ),
+                                    ),
+                                    const SizedBox(width: 50),
+                                    // GestureDetector(
+                                    //   onTap: () {
+                                    //     launchUrl(Uri.parse('https://ifykevents.com/terms_condition'));
+                                    //   },
+                                    //   child: Text(
+                                    //     'TERMS & CONDITIONS',
+                                    //     style: GoogleFonts.unbounded(
+                                    //         fontSize: 9
+                                    //     ),
+                                    //   ),
+                                    // ),
+                                  ],
                                 ),
                               ),
-                              const Expanded(
-                                flex: 2,
-                                child: SizedBox(
-                                  ///TODO: EMAIL INPUT
-                                ),
+                            ),
+                            const Expanded(
+                              flex: 2,
+                              child: SizedBox(
+                                ///TODO: EMAIL INPUT
                               ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          // const PngAsset(
-                          //   'socials',
-                          // ),
-                        ],
-                      ),
-                      const Divider(
-                        height: 20,
-                        thickness: .5,
-                        color: Colors.black,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: Text('Copyright 2024, ifYK. All Rights Reserved', style: GoogleFonts.unbounded(fontSize: 12)),
-                      )
-                    ],
-                  ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        // const PngAsset(
+                        //   'socials',
+                        // ),
+                      ],
+                    ),
+                    const Divider(
+                      height: 20,
+                      thickness: .5,
+                      color: Colors.black,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text('Copyright 2024, ifYK. All Rights Reserved', style: GoogleFonts.unbounded(fontSize: 12)),
+                    )
+                  ],
                 ),
               ),
             ],

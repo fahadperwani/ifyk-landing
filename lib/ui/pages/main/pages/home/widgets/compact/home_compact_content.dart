@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
-import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/compact/widgets/compact_cities_section.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/compact/widgets/compact_feedbacks_section.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/compact/widgets/compact_footer.dart';
 import 'package:ifyk_landing/ui/widgets/png_asset.dart';

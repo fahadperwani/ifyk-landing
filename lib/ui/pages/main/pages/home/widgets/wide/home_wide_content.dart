@@ -5,12 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
-import 'package:ifyk_landing/router/router.gr.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_feedbacks_section.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_footer.dart';
 import 'package:ifyk_landing/ui/pages/main/widgets/wide_wrapper.dart';
 import 'package:ifyk_landing/ui/utils/size_util.dart';
-import 'package:ifyk_landing/ui/widgets/jpg_asset.dart';
 import 'package:ifyk_landing/ui/widgets/png_asset.dart';
 import 'package:url_launcher/url_launcher.dart';
 

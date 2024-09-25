@@ -1,6 +1,6 @@
 {
-    "name": "ifyk_landing",
-    "short_name": "ifyk_landing",
+    "name": "ifyk",
+    "short_name": "ifyk",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#000000",
