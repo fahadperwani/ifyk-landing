@@ -7,8 +7,39 @@ import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/compact/widgets/co
 import 'package:ifyk_landing/ui/widgets/png_asset.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomeCompactContent extends StatelessWidget {
+class HomeCompactContent extends StatefulWidget {
   const HomeCompactContent({super.key});
+
+  @override
+  State<HomeCompactContent> createState() => _HomeCompactContentState();
+}
+
+class _HomeCompactContentState extends State<HomeCompactContent> {
+  List<String> images = [
+    'all_events_one_place_compact',
+    'party',
+    'fire',
+    'app_store',
+    'google_play',
+    'main_images_compact',
+    'going_out_made_easy_compact',
+    'interactive_map_view_compact',
+    'easy_filters_compact',
+    'swipe_scroll_discover_compact',
+    'star',
+    'footer_glow',
+    'logo',
+  ];
+
+
+
+  @override
+  void didChangeDependencies() {
+    for (var image in images) {
+      precacheImage(AssetImage('assets/png/$image.png'), context);
+    }
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
