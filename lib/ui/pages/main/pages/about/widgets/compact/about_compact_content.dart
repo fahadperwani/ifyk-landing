@@ -39,6 +39,7 @@ class AboutCompactContent extends StatelessWidget {
     }
 
     return SingleChildScrollView(
+      physics: const ClampingScrollPhysics(),
       child: Column(
         children: [
           Padding(

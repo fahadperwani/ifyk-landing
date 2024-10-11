@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
 import 'package:ifyk_landing/router/router.gr.dart';
+import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_download_widget.dart';
 import 'package:ifyk_landing/ui/utils/size_util.dart';
 import 'package:ifyk_landing/ui/widgets/png_asset.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class WideFooter extends StatelessWidget {
   final double topPadding;
@@ -15,14 +15,18 @@ class WideFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tabsRouter = AutoTabsRouter.of(context);
-    const double maxWidth = 1000;
+    const double maxWidth = 800;
     final screenWidth = SizeUtil.screenWidth(context) < maxWidth ? SizeUtil.screenWidth(context) : maxWidth;
     return SizedBox(
       width: double.infinity,
       child: Stack(
         children: <Widget>[
-          const Positioned.fill(child: PngAsset('footer_glow')),
+          const Positioned.fill(
+            top: 120,
+            child: PngAsset('footer_glow'),
+          ),
           Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: topPadding),
               Padding(
@@ -54,36 +58,15 @@ class WideFooter extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: screenWidth/30),
+              SizedBox(height: screenWidth/50),
               Align(
                 alignment: Alignment.topCenter,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: screenWidth/3),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Flexible(
-                        child: GestureDetector(
-                          onTap: (){
-                            launchUrl(Uri.parse('https://apps.apple.com/us/app/ifyk/id6468367267'));
-                          },
-                          child: const PngAsset('app_store'),
-                        ),
-                      ),
-                      const SizedBox(width: 15),
-                      Flexible(
-                        child: GestureDetector(
-                          onTap: (){
-                            launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
-                          },
-                          child: const PngAsset('google_play'),
-                        ),
-                      ),
-                    ],
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth/3.2),
+                  child: const WideDownloadWidget(),
                 ),
               ),
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: screenWidth/20),
                 width: double.infinity,

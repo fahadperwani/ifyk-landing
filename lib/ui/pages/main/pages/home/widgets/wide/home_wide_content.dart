@@ -5,17 +5,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
+import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_download_widget.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_feedbacks_section.dart';
 import 'package:ifyk_landing/ui/pages/main/pages/home/widgets/wide/widgets/wide_footer.dart';
 import 'package:ifyk_landing/ui/pages/main/widgets/wide_wrapper.dart';
 import 'package:ifyk_landing/ui/utils/size_util.dart';
 import 'package:ifyk_landing/ui/widgets/png_asset.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class HomeWideContent extends StatelessWidget {
+class HomeWideContent extends StatefulWidget {
   final TabsRouter tabsRouter;
   const HomeWideContent({super.key, required this.tabsRouter});
 
+  @override
+  State<HomeWideContent> createState() => _HomeWideContentState();
+}
+
+class _HomeWideContentState extends State<HomeWideContent> {
   @override
   Widget build(BuildContext context) {
     const double maxWidth = 1500;
@@ -38,57 +43,19 @@ class HomeWideContent extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              SizedBox(height: screenWidth/7),
+                              SizedBox(height: screenWidth/8),
                               const PngAsset('all_events_one_place'),
-                              // SizedBox(height: screenWidth/100),
-                              Row(
-                                children: [
-                                  Flexible(
-                                    child: Padding(
-                                      padding: EdgeInsets.only(top: screenWidth/30),
-                                      child: Row(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(width: screenWidth/30),
-                                          Flexible(
-                                            child: GestureDetector(
-                                              onTap: (){
-                                                launchUrl(Uri.parse('https://apps.apple.com/us/app/ifyk/id6468367267'));
-                                              },
-                                              child: const PngAsset(
-                                                'app_store',
-                                              ),
-                                            ),
-                                          ),
-                                          SizedBox(width: screenWidth/100),
-                                          Flexible(
-                                            child: GestureDetector(
-                                              onTap: (){
-                                                launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
-                                              },
-                                              child: const PngAsset(
-                                                'google_play',
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(width: screenWidth/100),
-                                  PngAsset('fire', width: screenWidth/35,),
-                                  SizedBox(width: screenWidth/20),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  SizedBox(width: screenWidth/30),
-                                  Padding(
-                                    padding: EdgeInsets.only(top: screenWidth/50),
-                                    child: PngAsset('party', width: screenWidth/35,),
-                                  ),
-                                ],
-                              ),
+                              const WideDownloadWidget(),
+                              SizedBox(height: screenWidth/15,)
+                              // Row(
+                              //   children: [
+                              //     SizedBox(width: screenWidth/30),
+                              //     Padding(
+                              //       padding: EdgeInsets.only(top: screenWidth/50),
+                              //       child: PngAsset('party', width: screenWidth/35,),
+                              //     ),
+                              //   ],
+                              // ),
                             ],
                           ),
                         ),

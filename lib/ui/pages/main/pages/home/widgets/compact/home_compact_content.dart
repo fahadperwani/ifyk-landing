@@ -44,6 +44,7 @@ class _HomeCompactContentState extends State<HomeCompactContent> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: const ClampingScrollPhysics(),
       child: Column(
         children: [
           const Padding(

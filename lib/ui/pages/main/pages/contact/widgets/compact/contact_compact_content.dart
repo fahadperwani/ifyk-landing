@@ -72,6 +72,7 @@ class _ContactCompactContentState extends State<ContactCompactContent> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: const ClampingScrollPhysics(),
       child: Column(
         children: [
           Padding(
