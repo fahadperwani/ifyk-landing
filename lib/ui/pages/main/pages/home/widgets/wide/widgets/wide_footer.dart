@@ -61,8 +61,8 @@ class WideFooter extends StatelessWidget {
               SizedBox(height: screenWidth/50),
               Align(
                 alignment: Alignment.topCenter,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: screenWidth/3.2),
+                child: SizedBox(
+                  width: screenWidth/1.4,
                   child: const WideDownloadWidget(),
                 ),
               ),

@@ -16,7 +16,7 @@ class CompactCitiesSection extends StatefulWidget {
 }
 
 class _CompactCitiesSectionState extends State<CompactCitiesSection> {
-  final CarouselController _controller = CarouselController();
+  final CarouselSliderController _controller = CarouselSliderController();
   final List<String> _cities = [
     'new_york',
     'los_angeles',

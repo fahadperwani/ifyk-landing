@@ -406,14 +406,14 @@ class PrivacyPolicyPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 30),
                                 CustomText(
-                                  label: 'Francisco Cruz',
+                                  label: 'Ghulam Muhammad',
                                   maxLines: 20,
                                   align: TextAlign.start,
                                   fontSize: 14,
                                   textColor: Colors.white,
                                 ),
                                 CustomText(
-                                  label: 'francis0six2seven@gmail.com',
+                                  label: 'g.qureshi@protogroup.co',
                                   maxLines: 20,
                                   align: TextAlign.start,
                                   fontSize: 14,
@@ -453,7 +453,15 @@ class PrivacyPolicyPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 30),
                                 CustomText(
-                                  label: '1. email marketing. You can opt-out by clicking "unsubscribe" at the bottom of any marketing email or updating your email preferences under "Account Details"',
+                                  label: '1. Email marketing. You can opt-out by clicking "unsubscribe" at the bottom of any marketing email or updating your email preferences under "Account Details"',
+                                  maxLines: 20,
+                                  align: TextAlign.start,
+                                  fontSize: 14,
+                                  textColor: Colors.white,
+                                ),
+                                SizedBox(height: 30),
+                                CustomText(
+                                  label: '2. Text Messaging. Users may receive text message notifications about their activities on our Site. To opt out of these messages: Reply "STOP" to any text message received from us.Update your preferences in your account settings by selecting "Opt-Out of Text Messages."Contact our support team at support@ifykevents.com or (845) 905-9003 to request text message opt-out.',
                                   maxLines: 20,
                                   align: TextAlign.start,
                                   fontSize: 14,
@@ -485,7 +493,7 @@ class PrivacyPolicyPage extends StatelessWidget {
                                   textColor: Colors.white,
                                 ),
                                 CustomText(
-                                  label: 'If you have any questions, concerns or complaints, you can contact our privacy officer, Francisco Cruz, at:',
+                                  label: 'If you have any questions, concerns or complaints, you can contact our privacy officer, Ghulam Muhammad, at:',
                                   maxLines: 20,
                                   align: TextAlign.start,
                                   fontSize: 14,
@@ -493,7 +501,7 @@ class PrivacyPolicyPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 30),
                                 CustomText(
-                                  label: 'francis0six2seven@gmail.com',
+                                  label: 'g.qureshi@protogroup.co',
                                   maxLines: 20,
                                   align: TextAlign.start,
                                   fontSize: 14,

@@ -17,7 +17,7 @@ class WideFeedbacksSection extends ConsumerStatefulWidget {
 }
 
 class _WideFeedbacksSectionState extends ConsumerState<WideFeedbacksSection> {
-  final CarouselController _controller = CarouselController();
+  final CarouselSliderController _controller = CarouselSliderController();
   // final double _btnSize = 50;
   @override
   Widget build(BuildContext context) {

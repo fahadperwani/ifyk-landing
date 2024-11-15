@@ -45,8 +45,13 @@ class _HomeWideContentState extends State<HomeWideContent> {
                             children: [
                               SizedBox(height: screenWidth/8),
                               const PngAsset('all_events_one_place'),
-                              const WideDownloadWidget(),
-                              SizedBox(height: screenWidth/15,)
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: screenWidth/30,
+                                ),
+                                child: const WideDownloadWidget(isHeader: true),
+                              ),
+                              SizedBox(height: screenWidth/15)
                               // Row(
                               //   children: [
                               //     SizedBox(width: screenWidth/30),

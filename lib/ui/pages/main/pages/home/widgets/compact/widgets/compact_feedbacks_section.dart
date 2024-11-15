@@ -16,7 +16,7 @@ class CompactFeedbacksSection extends ConsumerStatefulWidget {
 }
 
 class _CompactFeedbacksSectionState extends ConsumerState<CompactFeedbacksSection> {
-  final CarouselController _controller = CarouselController();
+  final CarouselSliderController _controller = CarouselSliderController();
   @override
   Widget build(BuildContext context) {
     return Column(

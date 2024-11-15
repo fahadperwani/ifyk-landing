@@ -7,7 +7,8 @@ import 'package:ifyk_landing/ui/widgets/png_asset.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WideDownloadWidget extends ConsumerWidget {
-  const WideDownloadWidget({super.key});
+  final bool isHeader;
+  const WideDownloadWidget({super.key, this.isHeader = false});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,11 +20,14 @@ class WideDownloadWidget extends ConsumerWidget {
         children: [
           Flexible(
             child: Padding(
-              padding: EdgeInsets.only(top: screenWidth/30),
+              padding: EdgeInsets.only(
+                top: screenWidth/30,
+                right: isHeader ? screenWidth/8 : 0,
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(width: screenWidth/30),
+                  // SizedBox(width: screenWidth/30),
                   Flexible(
                     child: GestureDetector(
                       onTap: (){
@@ -49,9 +53,9 @@ class WideDownloadWidget extends ConsumerWidget {
               ),
             ),
           ),
-          SizedBox(width: screenWidth/100),
-          PngAsset('fire', width: screenWidth/35),
-          SizedBox(width: screenWidth/20),
+          // SizedBox(width: screenWidth/100),
+          // PngAsset('fire', width: screenWidth/35),
+          // SizedBox(width: screenWidth/20),
         ],
       );
     } else {
