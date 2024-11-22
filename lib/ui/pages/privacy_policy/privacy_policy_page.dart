@@ -150,6 +150,22 @@ class PrivacyPolicyPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 30),
                                 CustomText(
+                                  label: 'Consent for Promotional Messages',
+                                  align: TextAlign.start,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                  underlined: true,
+                                  textColor: Colors.white,
+                                ),
+                                CustomText(
+                                  label: 'Before sending any promotional messages, we will obtain consent from customers explicitly through a double opt-in mechanism. First, customers will fill out a consent form on our business site, indicating their willingness to receive promotional messages. After this initial opt-in, they will confirm their consent by replying "YES" or a similar confirmation on their mobile device. By completing the double opt-in process, you acknowledge and agree to receive promotional updates, offers, or other related communications. We prioritize compliance with all applicable regulations to ensure your experience is secure and user-friendly.',
+                                  maxLines: 3,
+                                  align: TextAlign.start,
+                                  fontSize: 14,
+                                  textColor: Colors.white,
+                                ),
+                                SizedBox(height: 30),
+                                CustomText(
                                   label: 'Personal Data We Collect',
                                   align: TextAlign.start,
                                   fontWeight: FontWeight.bold,
@@ -358,7 +374,7 @@ class PrivacyPolicyPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 30),
                                 CustomText(
-                                  label: '1. Philippines',
+                                  label: '1. Philippines\n2. Pakistan',
                                   maxLines: 20,
                                   align: TextAlign.start,
                                   fontSize: 14,
@@ -406,7 +422,7 @@ class PrivacyPolicyPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 30),
                                 CustomText(
-                                  label: 'Ghulam Muhammad',
+                                  label: 'Ghulam Muhammad Qureshi',
                                   maxLines: 20,
                                   align: TextAlign.start,
                                   fontSize: 14,
@@ -461,7 +477,7 @@ class PrivacyPolicyPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 30),
                                 CustomText(
-                                  label: '2. Text Messaging. Users may receive text message notifications about their activities on our Site. To opt out of these messages: Reply "STOP" to any text message received from us.Update your preferences in your account settings by selecting "Opt-Out of Text Messages."Contact our support team at support@ifykevents.com or (845) 905-9003 to request text message opt-out.',
+                                  label: '2. Text Messaging. Users may receive text message notifications about their activities on our Site. To opt out of these messages: Reply "STOP" to any text message received from us. Update your preferences in your account settings by selecting "Opt-Out of Text Messages. "Contact our support team at support@ifykevents.com or (845) 905-9003 to request text message opt-out.',
                                   maxLines: 20,
                                   align: TextAlign.start,
                                   fontSize: 14,
@@ -493,7 +509,7 @@ class PrivacyPolicyPage extends StatelessWidget {
                                   textColor: Colors.white,
                                 ),
                                 CustomText(
-                                  label: 'If you have any questions, concerns or complaints, you can contact our privacy officer, Ghulam Muhammad, at:',
+                                  label: 'If you have any questions, concerns or complaints, you can contact our privacy officer, Ghulam Muhammad Qureshi, at:',
                                   maxLines: 20,
                                   align: TextAlign.start,
                                   fontSize: 14,
@@ -508,13 +524,6 @@ class PrivacyPolicyPage extends StatelessWidget {
                                   textColor: Colors.white,
                                 ),
                                 SizedBox(height: 50),
-                                // CustomText(
-                                //   label: '©2002-2024 LawDepot.com®',
-                                //   maxLines: 10,
-                                //   align: TextAlign.start,
-                                //   fontSize: 9,
-                                //     textColor: Colors.white,
-                                // ),
                               ],
                             ),
                           ),
