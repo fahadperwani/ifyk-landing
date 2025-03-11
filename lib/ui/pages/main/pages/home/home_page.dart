@@ -12,7 +12,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final tabsRouter = AutoTabsRouter.of(context);
     final isCompact = SizeUtil.isCompact(context);
-    if(isCompact){
+    print(isCompact);
+    if (isCompact) {
       return const HomeCompactContent();
     } else {
       return HomeWideContent(tabsRouter: tabsRouter);

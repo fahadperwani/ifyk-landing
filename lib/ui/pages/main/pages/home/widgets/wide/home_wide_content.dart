@@ -24,7 +24,9 @@ class _HomeWideContentState extends State<HomeWideContent> {
   @override
   Widget build(BuildContext context) {
     const double maxWidth = 1500;
-    final screenWidth = SizeUtil.screenWidth(context) < maxWidth ? SizeUtil.screenWidth(context) : maxWidth;
+    final screenWidth = SizeUtil.screenWidth(context) < maxWidth
+        ? SizeUtil.screenWidth(context)
+        : maxWidth;
     return SingleChildScrollView(
       child: Center(
         child: Column(
@@ -32,26 +34,26 @@ class _HomeWideContentState extends State<HomeWideContent> {
             WideWrapper(
               child: Column(
                 children: [
-                  Row (
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Container(
-                          padding: EdgeInsets.only(left: screenWidth/20),
+                          padding: EdgeInsets.only(left: screenWidth / 20),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              SizedBox(height: screenWidth/8),
+                              SizedBox(height: screenWidth / 8),
                               const PngAsset('all_events_one_place'),
                               Padding(
                                 padding: EdgeInsets.only(
-                                  left: screenWidth/30,
+                                  left: screenWidth / 30,
                                 ),
                                 child: const WideDownloadWidget(isHeader: true),
                               ),
-                              SizedBox(height: screenWidth/15)
+                              SizedBox(height: screenWidth / 15)
                               // Row(
                               //   children: [
                               //     SizedBox(width: screenWidth/30),
@@ -78,12 +80,20 @@ class _HomeWideContentState extends State<HomeWideContent> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: screenWidth/8),
+                    padding: EdgeInsets.symmetric(horizontal: screenWidth / 8),
+                    child: const PngAsset(
+                      'smart_search',
+                      // width: double.infinity,
+                    ),
+                  ),
+                  SizedBox(height: screenWidth / 20),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: screenWidth / 8),
                     child: const PngAsset(
                       'going_out_made_easy',
                     ),
                   ),
-                  SizedBox(height: screenWidth/20),
+                  SizedBox(height: screenWidth / 20),
                   Column(
                     children: [
                       Padding(
@@ -95,7 +105,7 @@ class _HomeWideContentState extends State<HomeWideContent> {
                           style: GoogleFonts.unbounded(
                             fontWeight: FontWeight.w500,
                             fontSize: 40,
-                            color: ColorPalette.primary ,
+                            color: ColorPalette.primary,
                           ),
                         ),
                       ),
@@ -113,32 +123,32 @@ class _HomeWideContentState extends State<HomeWideContent> {
                       ),
                     ],
                   ),
-                  SizedBox(height: screenWidth/30),
+                  SizedBox(height: screenWidth / 30),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: screenWidth/30),
+                    padding: EdgeInsets.symmetric(horizontal: screenWidth / 30),
                     child: Row(
                       children: [
                         Expanded(
                           child: Center(
                             child: PngAsset(
                               'interactive_map_view',
-                              height: screenWidth/2,
+                              height: screenWidth / 2,
                             ),
                           ),
                         ),
-                        SizedBox(width: screenWidth/20),
+                        SizedBox(width: screenWidth / 20),
                         Expanded(
                           child: Center(
                             child: PngAsset(
                               'easy_filters',
-                              height: screenWidth/2,
+                              height: screenWidth / 2,
                             ),
                           ),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(height: screenWidth/10),
+                  SizedBox(height: screenWidth / 10),
                   SizedBox(
                     width: double.infinity,
                     child: Column(

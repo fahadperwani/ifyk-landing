@@ -8,6 +8,7 @@ void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
 
+// assets\png\image.png
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -17,10 +18,11 @@ class MyApp extends StatelessWidget {
       title: "ifYK",
       debugShowCheckedModeBanner: true,
       theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme.apply(
-          bodyColor: ColorPalette.white,
-          displayColor: ColorPalette.white,
-        )),
+        textTheme:
+            GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme.apply(
+                  bodyColor: ColorPalette.white,
+                  displayColor: ColorPalette.white,
+                )),
         useMaterial3: true,
         colorScheme: const ColorScheme.dark(primary: ColorPalette.primary),
       ),

@@ -31,8 +31,6 @@ class _HomeCompactContentState extends State<HomeCompactContent> {
     'logo',
   ];
 
-
-
   @override
   void didChangeDependencies() {
     for (var image in images) {
@@ -80,8 +78,9 @@ class _HomeCompactContentState extends State<HomeCompactContent> {
                   children: [
                     Flexible(
                       child: GestureDetector(
-                        onTap: (){
-                          launchUrl(Uri.parse('https://apps.apple.com/us/app/ifyk/id6468367267'));
+                        onTap: () {
+                          launchUrl(Uri.parse(
+                              'https://apps.apple.com/us/app/ifyk/id6468367267'));
                         },
                         child: const PngAsset(
                           'app_store',
@@ -91,8 +90,9 @@ class _HomeCompactContentState extends State<HomeCompactContent> {
                     const SizedBox(width: 10),
                     Flexible(
                       child: GestureDetector(
-                        onTap: (){
-                          launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
+                        onTap: () {
+                          launchUrl(Uri.parse(
+                              'https://play.google.com/store/apps/details?id=com.ifyk'));
                         },
                         child: const PngAsset('google_play'),
                       ),
@@ -111,6 +111,14 @@ class _HomeCompactContentState extends State<HomeCompactContent> {
           const Padding(
             padding: EdgeInsets.only(left: 20, right: 20, top: 60),
             child: PngAsset(
+              'smart_search_compact',
+              fit: BoxFit.fitWidth,
+              width: double.infinity,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 20, right: 20, top: 60),
+            child: PngAsset(
               'going_out_made_easy_compact',
               fit: BoxFit.fitWidth,
               width: double.infinity,
@@ -121,7 +129,7 @@ class _HomeCompactContentState extends State<HomeCompactContent> {
             style: GoogleFonts.unbounded(
               fontWeight: FontWeight.w500,
               fontSize: 27,
-              color: ColorPalette.primary ,
+              color: ColorPalette.primary,
             ),
           ),
           Text(
