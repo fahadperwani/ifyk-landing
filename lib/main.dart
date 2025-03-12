@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifyk_landing/constants/color_palette.dart';
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       title: "ifYK",
       debugShowCheckedModeBanner: true,
       theme: ThemeData(
-        appBarTheme: AppBarTheme(backgroundColor: Colors.red),
+        navigationBarTheme:
+            NavigationBarThemeData(backgroundColor: Colors.black),
         textTheme:
             GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme.apply(
                   bodyColor: ColorPalette.white,
