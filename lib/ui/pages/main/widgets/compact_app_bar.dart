@@ -9,22 +9,18 @@ import '../../../widgets/custom_text.dart';
 class CompactAppBar extends StatelessWidget {
   final TabsRouter tabsRouter;
   final List<GlobalKey<AutoRouterState>> routerKeys;
-  const CompactAppBar({super.key, required this.tabsRouter, required this.routerKeys});
+  const CompactAppBar(
+      {super.key, required this.tabsRouter, required this.routerKeys});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Row(
         children: [
-          const PngAsset(
-            'logo',
-            height: 25,
-          ),
-          const Spacer(),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               showDialog(
                 context: context,
                 builder: (context) {
@@ -40,7 +36,7 @@ class CompactAppBar extends StatelessWidget {
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: GestureDetector(
-                                  onTap: (){
+                                  onTap: () {
                                     context.maybePop();
                                   },
                                   child: const PngAsset('menu_close'),
@@ -49,9 +45,12 @@ class CompactAppBar extends StatelessWidget {
                             ),
                             const SizedBox(height: 50),
                             GestureDetector(
-                              onTap: (){
-                                if(tabsRouter.activeIndex == 0){
-                                  routerKeys[0].currentState?.controller?.popUntilRoot();
+                              onTap: () {
+                                if (tabsRouter.activeIndex == 0) {
+                                  routerKeys[0]
+                                      .currentState
+                                      ?.controller
+                                      ?.popUntilRoot();
                                 } else {
                                   tabsRouter.setActiveIndex(0);
                                 }
@@ -59,22 +58,26 @@ class CompactAppBar extends StatelessWidget {
                               },
                               child: CustomText(
                                 label: 'Home',
-                                fontSize: 35,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                textColor: tabsRouter.activeIndex == 0 ? Colors.white : ColorPalette.white.withOpacity(.6),
+                                textColor: tabsRouter.activeIndex == 0
+                                    ? Colors.white
+                                    : ColorPalette.white.withOpacity(.6),
                               ),
                             ),
                             const SizedBox(height: 20),
                             GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 tabsRouter.setActiveIndex(1);
                                 context.maybePop();
                               },
                               child: CustomText(
                                 label: 'About Us',
-                                fontSize: 35,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                textColor: tabsRouter.activeIndex == 1 ? Colors.white : ColorPalette.white.withOpacity(.6),
+                                textColor: tabsRouter.activeIndex == 1
+                                    ? Colors.white
+                                    : ColorPalette.white.withOpacity(.6),
                               ),
                             ),
                             // const SizedBox(height: 20),
@@ -86,32 +89,37 @@ class CompactAppBar extends StatelessWidget {
                             // ),
                             const SizedBox(height: 20),
                             GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 tabsRouter.setActiveIndex(2);
                                 context.maybePop();
                               },
                               child: CustomText(
                                 label: 'Contact',
-                                fontSize: 35,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
-                                textColor: tabsRouter.activeIndex == 2 ? Colors.white : ColorPalette.white.withOpacity(.6),
+                                textColor: tabsRouter.activeIndex == 2
+                                    ? Colors.white
+                                    : ColorPalette.white.withOpacity(.6),
                               ),
                             ),
                             const Spacer(),
                             const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 25, vertical: 10),
                               child: PngAsset('download_the_app'),
                             ),
                             const SizedBox(height: 20),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 25),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 25),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Flexible(
                                     child: GestureDetector(
-                                      onTap: (){
-                                        launchUrl(Uri.parse('https://apps.apple.com/us/app/ifyk/id6468367267'));
+                                      onTap: () {
+                                        launchUrl(Uri.parse(
+                                            'https://apps.apple.com/us/app/ifyk/id6468367267'));
                                       },
                                       child: const PngAsset(
                                         'app_store',
@@ -121,8 +129,9 @@ class CompactAppBar extends StatelessWidget {
                                   const SizedBox(width: 15),
                                   Flexible(
                                     child: GestureDetector(
-                                      onTap: (){
-                                        launchUrl(Uri.parse('https://play.google.com/store/apps/details?id=com.ifyk'));
+                                      onTap: () {
+                                        launchUrl(Uri.parse(
+                                            'https://play.google.com/store/apps/details?id=com.ifyk'));
                                       },
                                       child: const PngAsset(
                                         'google_play',
@@ -143,6 +152,12 @@ class CompactAppBar extends StatelessWidget {
             },
             child: const PngAsset('app_bar_menu'),
           ),
+          const Spacer(),
+          const PngAsset(
+            'logo',
+            height: 25,
+          ),
+
           // IconButton(
           //   onPressed: (){
           //

@@ -54,7 +54,7 @@ class _HomeCompactContentState extends State<HomeCompactContent> {
           Stack(
             children: [
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 60),
+                padding: EdgeInsets.symmetric(horizontal: 40),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -82,19 +82,23 @@ class _HomeCompactContentState extends State<HomeCompactContent> {
                           launchUrl(Uri.parse(
                               'https://apps.apple.com/us/app/ifyk/id6468367267'));
                         },
-                        child: const PngAsset(
-                          'app_store',
+                        child: Transform.scale(
+                          scale: 1.6,
+                          child: const PngAsset(
+                            'app_store',
+                          ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 50),
                     Flexible(
                       child: GestureDetector(
                         onTap: () {
                           launchUrl(Uri.parse(
                               'https://play.google.com/store/apps/details?id=com.ifyk'));
                         },
-                        child: const PngAsset('google_play'),
+                        child: Transform.scale(
+                            scale: 1.6, child: const PngAsset('google_play')),
                       ),
                     ),
                   ],
