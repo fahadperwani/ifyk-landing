@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: "ifYK",
       debugShowCheckedModeBanner: true,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: Colors.red),
         textTheme:
             GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme.apply(
                   bodyColor: ColorPalette.white,
